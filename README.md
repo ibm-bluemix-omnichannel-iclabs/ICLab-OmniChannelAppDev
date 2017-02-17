@@ -283,11 +283,11 @@ let logger = Logger.logger(name: "My Logger")
 
 ##iOS - Build and Run the app
 
-![](https://github.ibm.com/agirijak/BMDService/tree/development/images/Mobile_LoginPage.png)
-![](https://github.ibm.com/agirijak/BMDService/tree/development/images/Mobile_APPIDScreen.png)
-![](https://github.ibm.com/agirijak/BMDService/tree/development/images/Mobile_AddEmail.png)
-![](https://github.ibm.com/agirijak/BMDService/tree/development/images/Mobile_AddPassword.png)
-![](https://github.ibm.com/agirijak/BMDService/tree/development/images/Mobile_Profile.png)
+![](https://github.com/ibm-bluemix-omnichannel-iclabs/ICLab-OmniChannelAppDev/blob/development/images/Mobile_LoginPage.png)
+![](https://github.com/ibm-bluemix-omnichannel-iclabs/ICLab-OmniChannelAppDev/blob/development/images/Mobile_APPIDScreen.png)
+![](https://github.com/ibm-bluemix-omnichannel-iclabs/ICLab-OmniChannelAppDev/blob/development/images/Mobile_AddEmail.png)
+![](https://github.com/ibm-bluemix-omnichannel-iclabs/ICLab-OmniChannelAppDev/blob/development/images/Mobile_AddPassword.png)
+![](https://github.com/ibm-bluemix-omnichannel-iclabs/ICLab-OmniChannelAppDev/blob/development/images/Mobile_Profile.png)
 
 
 ##Web App - App with AppID and Push Service
@@ -359,11 +359,10 @@ let logger = Logger.logger(name: "My Logger")
 >Note : Load your website with <bold>HTTPS</bold>.
 
 
-![](https://github.ibm.com/agirijak/BMDService/tree/development/images/Web_LoginPage.png)
-
-<!-- ![](https://github.ibm.com/agirijak/BMDService/tree/development/images/Web_APPIDScreen.png)
-![](https://github.ibm.com/agirijak/BMDService/tree/development/images/Web_AddEmail.png)
-![](https://github.ibm.com/agirijak/BMDService/tree/development/images/Web_AddPassword.png)
-![](https://github.ibm.com/agirijak/BMDService/tree/development/images/Web_Profile.png) -->
+![](https://github.com/ibm-bluemix-omnichannel-iclabs/ICLab-OmniChannelAppDev/blob/development/images/Web_LoginPage.png)
+![](https://github.com/ibm-bluemix-omnichannel-iclabs/ICLab-OmniChannelAppDev/blob/development/images/Web_APPIDScreen.png)
+![](https://github.com/ibm-bluemix-omnichannel-iclabs/ICLab-OmniChannelAppDev/blob/development/images/Web_AddEmail.png)
+![](https://github.com/ibm-bluemix-omnichannel-iclabs/ICLab-OmniChannelAppDev/blob/development/images/Web_AddPassword.png)
+![](https://github.com/ibm-bluemix-omnichannel-iclabs/ICLab-OmniChannelAppDev/blob/development/images/Web_Profile.png) 
 
 
