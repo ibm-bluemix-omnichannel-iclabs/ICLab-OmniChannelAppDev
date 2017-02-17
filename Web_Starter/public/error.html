@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<h1 id="errorMessage"></h1>
+<h2 id="errorStatus"></h2>
+<pre id="errorStack"></pre>
+<script>
+  document.getElementById("errorMessage").innerHTML = getParams('errorMessage');
+  document.getElementById("errorStatus").innerHTML = getParams('errorStatus');
+  document.getElementById("userNameId").errorStack = getParams('errorStack');
+  function getParams(name, url) {
+    if (!url) {
+      url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+      results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
+</script>
+</body>
+</html>
