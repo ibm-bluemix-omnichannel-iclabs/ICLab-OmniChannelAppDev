@@ -1,9 +1,0 @@
-# Uncomment this line to define a global platform for your project
-# platform :ios, '9.0'
-
-target 'BMDService' do
-  use_frameworks!
-	pod 'BluemixAppID', :git => 'https://github.com/ibm-bluemix-mobile-services/appid-clientsdk-swift.git', :branch => ‘development’
-	pod 'BMSPush'
-	pod 'BMSAnalytics'
-end
