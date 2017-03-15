@@ -2,7 +2,7 @@
 
 A sample project to show the easiness of integrating Bluemix Push service, Mobile Analytics and AppID service across different platform (mobile and web).
 
-##Requirements
+## Requirements
 
 * iOS 8.0+
 * Xcode 8.+
@@ -21,7 +21,7 @@ Complete the steps:
 3. Create a [Mobile Anlytics Service](https://console.stage1.ng.bluemix.net/catalog/?taxonomyNavigation=apps&category=mobile).
 
 
-##Samples
+## Samples
 
 Clone the ICLab-OmniChannelAppDev repo
 
