@@ -39,7 +39,7 @@ Go to the `ICLab-OmniChannelAppDev/Web` in your cloned repo and follow the below
 
 2. Go to the `Web/manifest.yml` file. Change the host and `name` to your website name.
 
-3. Open `config.js` file and add values for `authorizationEndpoint`, `tokenEndpoint`, `secret`, `redirectURL`, `appRegion`, `pushAPPGUID`, `pushClientSecret`.
+3. Open `config.js` file and add values for
 
    <img src="Assets/config.png" width="600" height="150">
 
@@ -49,6 +49,20 @@ Go to the `ICLab-OmniChannelAppDev/Web` in your cloned repo and follow the below
 5. Open the `public/manifest.json` file and add values for name and `gcm_sender_id (Sender ID)`.
 
    <img src="Assets/manifest.png" width="300" height="100">
+
+5.  Open the `views/protected.ejs` file and add values for ,
+
+```
+var initParams = {
+    "appGUID":"97ea15df-0ca1-4ff0-8c54-fb46259204f8",
+    "appRegion":".stage1-dev.ng.bluemix.net",
+    "clientSecret":"a6e5635d-88b8-4cbd-bc00-58f1be61d6c6"
+  }
+
+  var userId = "kg"
+```
+
+ Inside the `registerPush` method .
 
 6. Push to Bluemix using Bluemix CLI,
 

@@ -129,24 +129,3 @@ h4 {
 .hide {
     display: none;
 }
-
-.resize_fit_center1 {
-    vertical-align: middle;
-}
-
-#container1{
-  width: 100%;
-  background: white;
-  overflow: hidden;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  margin-top: 3%;
-  margin-right: 20%;
-}
-
-.one {
-    position: center;
-    display:inline-block;
-    width: auto;
-}

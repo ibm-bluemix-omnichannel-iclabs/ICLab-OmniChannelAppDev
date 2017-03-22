@@ -1,24 +1,20 @@
 {
-  "name": "appidtvappidweb",
+  "name": "appidnewkgappidweb",
   "version": "1.0.0",
   "description": "AppID web application sample",
-  "main": "./bin/www",
+  "main": "app.js",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node app.js"
   },
   "dependencies": {
-    "cfenv": "^1.0.3"
-,
-    "base64url": "^2.0.0",
-    "body-parser": "~1.13.2",
-    "consolidate": "^0.14.5",
-    "debug": "~2.2.0",
-    "express": "~4.13.1",
-    "express-session": "^1.14.2",
+    "cfenv": "^1.0.3",
+    "bluemix-appid": "1.0.0",
+    "ejs": "^2.5.6",
+    "express": "^4.13.4",
+    "express-session": "^1.15.1",
     "jquery.json-viewer": "^1.1.0",
-    "morgan": "~1.6.1",
-    "mustache": "^2.3.0",
-    "request": "^2.72.0"
+    "log4js": "^1.1.0",
+    "passport": "^0.3.2"
   }
 }
