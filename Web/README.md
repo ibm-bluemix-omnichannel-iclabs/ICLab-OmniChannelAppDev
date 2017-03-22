@@ -30,26 +30,26 @@ Please follow the steps to run the app,
 
 5.  Open the `views/protected.ejs` file and add values for ,
 
-```
-var initParams = {
-     "appGUID":"97ea15df-0ca1-4ff0-8c54-fb46259204f8",
-     "appRegion":".stage1-dev.ng.bluemix.net",
-     "clientSecret":"a6e5635d-88b8-4cbd-bc00-58f1be61d6c6"
-   }
+  ```
+  var initParams = {
+       "appGUID":"97ea15df-0ca1-4ff0-8c54-fb46259204f8",
+       "appRegion":".stage1-dev.ng.bluemix.net",
+       "clientSecret":"a6e5635d-88b8-4cbd-bc00-58f1be61d6c6"
+     }
 
-   var userId = "kg"
-```
+     var userId = "kg"
+  ```
 
-Inside teh `registerPush` method .
+  Inside teh `registerPush` method .
 
-5. Go the root folder `Web` in your terminal.
+6. Go the root folder `Web` in your terminal.
 
-6. Run the `CLI` command - `cf api api.stage1.ng.bluemix.net` ,
+7. Run the `CLI` command - `cf api api.stage1.ng.bluemix.net` ,
 
-7. Login to bluemix from CLI using `cf login`. Select your `Organization` and `Space`.
+8. Login to bluemix from CLI using `cf login`. Select your `Organization` and `Space`.
 
-8. Do the `cf push`. This will host your app in Bluemix.
+9. Do the `cf push`. This will host your app in Bluemix.
 
-9. After App is started open - `https://yourwebsitename.stage1.mybluemix.net`.
+10. After App is started open - `https://yourwebsitename.stage1.mybluemix.net`.
 
 >Note : Load your website with <bold>HTTPS</bold>.

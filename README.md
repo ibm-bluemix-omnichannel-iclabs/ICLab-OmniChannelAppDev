@@ -50,21 +50,21 @@ Go to the `ICLab-OmniChannelAppDev/Web` in your cloned repo and follow the below
 
    <img src="Assets/manifest.png" width="300" height="100">
 
-5.  Open the `views/protected.ejs` file and add values for ,
+6.  Open the `views/protected.ejs` file and add values for ,
 
-```
-var initParams = {
-    "appGUID":"97ea15df-0ca1-4ff0-8c54-fb46259204f8",
-    "appRegion":".stage1-dev.ng.bluemix.net",
-    "clientSecret":"a6e5635d-88b8-4cbd-bc00-58f1be61d6c6"
-  }
+  ```
+  var initParams = {
+      "appGUID":"97ea15df-0ca1-4ff0-8c54-fb46259204f8",
+      "appRegion":".stage1-dev.ng.bluemix.net",
+      "clientSecret":"a6e5635d-88b8-4cbd-bc00-58f1be61d6c6"
+    }
 
-  var userId = "kg"
-```
+    var userId = "kg"
+  ```
 
  Inside the `registerPush` method .
 
-6. Push to Bluemix using Bluemix CLI,
+7. Push to Bluemix using Bluemix CLI,
 
       a.	Go to the folder Web in your terminal.
       b.	Run the CLI command - cf api api.stage1.ng.bluemix.net ,
@@ -72,7 +72,7 @@ var initParams = {
       d.	Do the cf push. This will host your app in Bluemix.
       e.	After App is started open - https://yourwebsitename.stage1.mybluemix.net.
 
-7. Open the `Bluemix Push service` and add the `websites address` and `Google server Keys (Legacy Server key)`.
+8. Open the `Bluemix Push service` and add the `websites address` and `Google server Keys (Legacy Server key)`.
 
    <img src="Assets/configpush.png" width="600" height="200">
 
