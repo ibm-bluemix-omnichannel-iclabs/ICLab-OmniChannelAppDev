@@ -14,11 +14,11 @@ A sample project to show the easiness of integrating Bluemix Push service, Mobil
 
 Complete the steps:
 
-1. Create a [Push Notifications Service](https://console.stage1.ng.bluemix.net/catalog/?taxonomyNavigation=apps&category=mobile).
+1. Create a [Push Notifications Service](https://console.ng.bluemix.net/catalog/?taxonomyNavigation=apps&category=mobile).
 
-2. Create an [AppID Service](https://console.stage1.ng.bluemix.net/catalog/?taxonomyNavigation=apps&category=mobile)
+2. Create an [AppID Service](https://console.ng.bluemix.net/catalog/?taxonomyNavigation=apps&category=mobile)
 
-3. Create a [Mobile Anlytics Service](https://console.stage1.ng.bluemix.net/catalog/?taxonomyNavigation=apps&category=mobile).
+3. Create a [Mobile Anlytics Service](https://console.ng.bluemix.net/catalog/?taxonomyNavigation=apps&category=mobile).
 
 
 ## Samples
@@ -31,34 +31,53 @@ git clone https://github.com/ibm-bluemix-omnichannel-iclabs/ICLab-OmniChannelApp
 
 ### Web Sample
 
-Go to the `ICLab-OmniChannelAppDev/Web` in your cloned repo and follow the below steps,
 
-1. Go to https://console.firebase.google.com/ and create an app and get Legacy Server key and Sender ID from CLOUD MESSAGING section
+1. Go to https://console.firebase.google.com/ and create an app and get Legacy Server key and Sender ID from CLOUD MESSAGING section under settings Icon next to Overview 
 
     <img src="Assets/firebase.png" width="600" height="200">
+    
+Go to the `ICLab-OmniChannelAppDev/Web` in your cloned repo and follow the below steps,
 
 2. Go to the `Web/manifest.yml` file. Change the host and `name` to your website name.
 
-3. Open `config.js` file and add values for `authorizationEndpoint`, `tokenEndpoint`, `secret`, `redirectURL`, `appRegion`, `pushAPPGUID`, `pushClientSecret`.
+3. Open `app.js` file and add values for 
 
-   <img src="Assets/config.png" width="600" height="150">
+  ```
+config.oauthServerUrl = '<Your APP ID oauthServerUrl>';
+config.clientId = '<Your APP ID clientId>';
+config.tenantId = '<Your APP ID tenantId>';
+config.secret = '<Your APP ID secret>';
+  ```
 
-
-4. Download Push Service website SDKs (BMSPushSDK.js, BMSPushServiceWorker.js) and manifest file from [Push Web SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-javascript-webpush) and keep them inside public folder
+4.  If you don't see BMSPushSDK.js, BMSPushServiceWorker.js and manifest.json file under /web/views folder. Download these Push Service website SDKs from [Push Web SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-javascript-webpush) and paste them inside /web/views folder
 
 5. Open the `public/manifest.json` file and add values for name and `gcm_sender_id (Sender ID)`.
 
    <img src="Assets/manifest.png" width="300" height="100">
 
-6. Push to Bluemix using Bluemix CLI,
+6.  Open the `views/protected.ejs` file and add values from your PUSH notifications service ,
+
+  ```
+  var initParams = {
+      "appGUID":"97ea15df-0ca1-4ff0-8c54-fb46259204f8",
+      "appRegion":".stage1-dev.ng.bluemix.net",
+      "clientSecret":"a6e5635d-88b8-4cbd-bc00-58f1be61d6c6"
+    }
+
+    var userId = "kg"
+  ```
+
+ Inside the `registerPush` method .
+
+7. Push to Bluemix using Bluemix CLI,
 
       a.	Go to the folder Web in your terminal.
       b.	Run the CLI command - cf api api.stage1.ng.bluemix.net ,
       c.	Login to Bluemix from CLI using cf login. Select your Organization and Space.
       d.	Do the cf push. This will host your app in Bluemix.
-      e.	After App is started open - https://yourwebsitename.stage1.mybluemix.net.
+      e.	After App is started open - https://yourwebsitename.mybluemix.net.
 
-7. Open the `Bluemix Push service` and add the `websites address` and `Google server Keys (Legacy Server key)`.
+8. Open the `Bluemix Push service` and add the `websites address` and `Google server Keys (Legacy Server key)`.
 
    <img src="Assets/configpush.png" width="600" height="200">
 
@@ -102,7 +121,8 @@ Go to the `ICLab-OmniChannelAppDev/Web` in your cloned repo and follow the below
 
 3.	Open the `BMDService.xcworkspace` app in Xcode
 
-4.	Add your `Bundle identifier` and configure for `push service`. Follow [this](https://console.stage1.ng.bluemix.net/docs/services/mobilepush/t__main_push_config_provider.html#create-push-credentials-apns)
+4.	Add your `Bundle identifier` and configure for `push service`. Follow [this](https://console.
+.ng.bluemix.net/docs/services/mobilepush/t__main_push_config_provider.html#create-push-credentials-apns)
 
 5.	Enable `Push Notification`, `Background mode -> Remote notifications` and `Keychain Sharing`
 

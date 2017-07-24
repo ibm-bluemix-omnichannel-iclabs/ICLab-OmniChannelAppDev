@@ -2,12 +2,8 @@
 // in order to send the requests to the authorization and token endpoints.
 
 module.exports = {
-   authorizationEndpoint: 'Get it from your APPID Service ',
-  tokenEndpoint: 'Get it from your APPID Service ',
-  clientId: 'Get it from your APPID Service ',
-  secret: 'Get it from your APPID Service ',
-  redirectURL: 'https://yourApp.stage1.mybluemix.net/oauth-callback',
-  appRegion: "Service region - like .stage1.ng.bluemix.net",
-  pushAPPGUID: "Push service App Guid",
-  pushClientSecret: "Push service Client Secret"
+   oauthServerUrl: 'https://appid-oauth.stage1.ng.bluemix.net/oauth/v3/57eb09df-7a85-4782-b16c-8f704b7bec6f',
+  clientId: '67f11442-7cde-4e7e-a6b3-e533b64a5be8',
+  tenantId: '57eb09df-7a85-4782-b16c-8f704b7bec6f',
+  secret: 'MDdhNDhmYTYtYTlmNi00NmY2LThjNDUtYmRjMzE2NDM2MmM4'
 };
