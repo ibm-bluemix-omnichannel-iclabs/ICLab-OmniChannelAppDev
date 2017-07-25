@@ -12,59 +12,16 @@ import NotificationCenter
 
 class ProfileViewController: UIViewController {
 
-    @IBOutlet weak var profilePic: UIImageView!
-    @IBOutlet weak var successMsg: UILabel!
-    
-    var accessToken:AccessToken?
-    var idToken:IdentityToken?
-    var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     override func viewDidLoad() {
        
         super.viewDidLoad()
         
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+         appDelegate.registerForPush()
 
-        if let picUrl = idToken?.picture, let url = URL(string: picUrl), let data = try? Data(contentsOf: url) {
-            self.profilePic.image = UIImage(data: data)
-        }
-        
-        self.profilePic.layer.cornerRadius = self.profilePic.frame.size.height / 2;
-        self.profilePic.layer.masksToBounds = true;
-        
-        if let displayName = idToken?.name {
-            self.successMsg.text = "Hi " + displayName + ", Welcome to BMDService 🎉🎊"
-        }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        NotificationCenter.default.addObserver(self, selector: #selector(ProfileViewController.showAlert), name: NSNotification.Name(rawValue: "NotificationIdentifier"), object: nil)
-    }
     
-    func showAlert(notification: NSNotification) {
-        if let myDict = notification.userInfo as? [String:AnyObject] {
-            let alert = UIAlertController.init(title: myDict["title"] as! String? , message: myDict["message"] as! String?, preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-
-    @IBAction func crashApp(_ sender: Any) {
-        NSException(name: NSExceptionName(rawValue: "CrashAppButton"), reason: "Crash button was clicked", userInfo: nil).raise()
-    }
-    
-    @IBAction func registerPush(_ sender: UISwitch) {
-        
-        if sender.isOn{
-            
-            appDelegate.registerForPush()
-            
-        }else{
-            
-            appDelegate.unRegisterForPush()
-        }
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 }

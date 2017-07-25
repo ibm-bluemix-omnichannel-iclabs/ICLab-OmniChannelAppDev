@@ -3,7 +3,7 @@
 
 target 'BMDService' do
   use_frameworks!
-	pod 'BluemixAppID', :git => 'https://github.com/ibm-bluemix-mobile-services/appid-clientsdk-swift.git', :branch => ‘development’
+	pod 'BluemixAppID'
 	pod 'BMSPush'
 	pod 'BMSAnalytics'
 end
