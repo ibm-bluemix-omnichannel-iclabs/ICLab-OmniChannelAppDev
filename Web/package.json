@@ -1,7 +1,7 @@
 {
-  "name": "appidnewkgappidweb",
+  "name": "omnichannelappidappidweb",
   "version": "1.0.0",
-  "description": "AppID web application sample",
+  "description": "App ID web application sample",
   "main": "app.js",
   "private": true,
   "scripts": {
@@ -9,12 +9,13 @@
   },
   "dependencies": {
     "cfenv": "^1.0.3",
-    "bluemix-appid": "1.0.0",
+    "bluemix-appid": "^1.0.0",
     "ejs": "^2.5.6",
     "express": "^4.13.4",
+    "express-enforces-ssl": "^1.1.0",
     "express-session": "^1.15.1",
+    "helmet": "^3.6.0",
     "jquery.json-viewer": "^1.1.0",
-    "log4js": "^1.1.0",
     "passport": "^0.3.2"
   }
 }

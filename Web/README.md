@@ -1,55 +1,133 @@
-BMDService - Web Final App
-===================================================
 
+# Getting started with Node.js on Bluemix
+By following this guide, you'll set up a development environment, deploy an app locally and on Bluemix, and integrate a Bluemix database service in your app.
 
-This is a completed Web app.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/IBM-Bluemix/get-started-java/master/docs/GettingStarted.gif" width="300">
+</p>
 
-Before starting the Web app building open bluemix and do the following,
+## Prerequisites
 
-1. Create a [Bluemix Push service](https://console.stage1.ng.bluemix.net/docs/services/mobilepush/index.html) and configure the service
-2. Create a [Bluemix  AppId service](https://console.stage1.ng.bluemix.net/docs/services/appid/index.html#gettingstarted) and enable FaceBook and Google Login
+You'll need a [Bluemix account](https://console.ng.bluemix.net/registration/), [Git](https://git-scm.com/downloads) [Cloud Foundry CLI](https://github.com/cloudfoundry/cli#downloads) and [Node](https://nodejs.org/en/)
 
+## 1. Clone the sample app
 
-Please follow the steps to run the app,
-
-1. Open `manifest.yml` file. Change the `host` and `name` to your website name.
-
-2. Open the `Config.js` file and add your credentials
-
-```
-  oauthServerUrl: 'Get it from your APPID Service ',
-  clientId: 'Get it from your APPID Service ',
-  tenantId: 'Get it from your APPID Service ',
-  secret: 'Get it from your APPID Service ',
-
-```
-
-3. Go to [Firebase](https://console.firebase.google.com/) and create an app and get `Legacy Server key` and `Sender ID` from `CLOUD MESSAGING` section.
-
-4. Open the `views/manifest.json` file and add values for `name` and `gcm_sender_id`.
-
-5.  Open the `views/protected.ejs` file and add values for ,
-
+Now you're ready to start working with the simple Node.js *hello world* app. Clone the repository and change to the directory to where the sample app is located.
   ```
-  var initParams = {
-       "appGUID":"97ea15df-0ca1-4ff0-8c54-fb46259204f8",
-       "appRegion":".stage1-dev.ng.bluemix.net",
-       "clientSecret":"a6e5635d-88b8-4cbd-bc00-58f1be61d6c6"
-     }
-
-     var userId = "kg"
+  git clone https://github.com/IBM-Bluemix/get-started-node
   ```
 
-  Inside teh `registerPush` method .
+  ```
+  cd get-started-node
+  ```
 
-6. Go the root folder `Web` in your terminal.
+  Peruse the files in the *get-started-node* directory to familiarize yourself with the contents.
 
-7. Run the `CLI` command - `cf api api.stage1.ng.bluemix.net` ,
+## 2. Run the app locally
 
-8. Login to bluemix from CLI using `cf login`. Select your `Organization` and `Space`.
+Install the dependencies listed in the [package.json](https://docs.npmjs.com/files/package.json) file to run the app locally.  
+  ```
+  npm install
+  ```
 
-9. Do the `cf push`. This will host your app in Bluemix.
+Run the app.
+  ```
+  npm start  
+  ```
 
-10. After App is started open - `https://yourwebsitename.stage1.mybluemix.net`.
+View your app at: http://localhost:3000
 
->Note : Load your website with <bold>HTTPS</bold>.
+## 3. Prepare the app for deployment
+
+To deploy to Bluemix, it can be helpful to set up a manifest.yml file. One is provided for you with the sample. Take a moment to look at it.
+
+The manifest.yml includes basic information about your app, such as the name, how much memory to allocate for each instance and the route. In this manifest.yml **random-route: true** generates a random route for your app to prevent your route from colliding with others.  You can replace **random-route: true** with **host: myChosenHostName**, supplying a host name of your choice. [Learn more...](https://console.bluemix.net/docs/manageapps/depapps.html#appmanifest)
+ ```
+ applications:
+ - name: nodejs-helloworld
+   random-route: true
+   memory: 128M
+ ```
+
+## 4. Deploy the app
+
+You can use the Cloud Foundry CLI to deploy apps.
+
+Choose your API endpoint
+   ```
+   cf api <API-endpoint>
+   ```
+
+Replace the *API-endpoint* in the command with an API endpoint from the following list.
+  ```
+  https://api.ng.bluemix.net # US South
+  https://api.eu-gb.bluemix.net # United Kingdom
+  https://api.au-syd.bluemix.net # Sydney
+  ```
+
+Login to your Bluemix account
+
+  ```
+  cf login
+  ```
+
+From within the *nodejs-helloworld* directory push your app to Bluemix
+  ```
+  cf push
+  ```
+
+This can take a minute. If there is an error in the deployment process you can use the command `cf logs <Your-App-Name> --recent` to troubleshoot.
+
+
+View your app at the URL listed in the output of the push command, for example, *myUrl.mybluemix.net*.  You can issue the
+```
+cf apps
+```
+command to view your apps status and see the URL.
+
+
+## 5. Add a database
+
+Next, we'll add a NoSQL database to this application and set up the application so that it can run locally and on Bluemix.
+
+1. Log in to Bluemix in your Browser. Select your application and click on `Connect new` under `Connections`.
+2. Select `Cloudant NoSQL DB` and Create the service.
+3. Select `Restage` when prompted. Bluemix will restart your application and provide the database credentials to your application using the `VCAP_SERVICES` environment variable. This environment variable is only available to the application when it is running on Bluemix.
+
+## 6. Use the database
+
+We're now going to update your local code to point to this database. We'll create a json file that will store the credentials for the services the application will use. This file will get used ONLY when the application is running locally. When running in Bluemix, the credentials will be read from the VCAP_SERVICES environment variable.
+
+1. Create a file called `vcap-local.json` in the `nodejs-helloworld` directory with the following content:
+  ```
+  {
+    "services": {
+      "cloudantNoSQLDB": [
+        {
+          "credentials": {
+            "url":"CLOUDANT_DATABASE_URL"
+          },
+          "label": "cloudantNoSQLDB"
+        }
+      ]
+    }
+  }
+  ```
+
+2. Back in the Bluemix UI, select your App -> Connections -> Cloudant -> View Credentials
+
+3. Copy and paste just the `url` from the credentials to the `url` field of the `vcap-local.json` file.
+
+4. Run your application locally.
+  ```
+  npm start  
+  ```
+
+  View your app at: http://localhost:3000. Any names you enter into the app will now get added to the database.
+
+  Tip: Use [nodemon](https://nodemon.io/) to automatically restart the application when you update code.
+
+5. Make any changes you want and re-deploy to Bluemix!
+  ```
+  cf push
+  ```

@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,18 +21,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IBMBlueMix.png" translatesAutoresizingMaskIntoConstraints="NO" id="zN8-HX-dsm">
-                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app.png" translatesAutoresizingMaskIntoConstraints="NO" id="CrD-6c-Zw7">
+                                <rect key="frame" x="137" y="182" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="AA2-fL-UTW"/>
-                                    <constraint firstAttribute="width" constant="240" id="lnQ-vg-6tD"/>
+                                    <constraint firstAttribute="width" constant="100" id="OLZ-W3-nCp"/>
+                                    <constraint firstAttribute="height" constant="100" id="hRG-Mp-r6b"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9F-VU-eV6">
+                                <rect key="frame" x="150" y="312" width="75" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="8M9-DM-NmN"/>
+                                    <constraint firstAttribute="height" constant="21" id="we2-xY-6IG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All access to and use of the App subject to Privacy Statements and governed by End User Licence Agreement and Terms of Service." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWG-ce-0rj">
+                                <rect key="frame" x="19" y="581" width="336" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="wb8-qq-zZv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@ 2017 Acme Bank Company. All rights are reserved." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8Q-Wk-kbj">
+                                <rect key="frame" x="19" y="626" width="336" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="WIB-Df-hZO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.91764705882352937" green="0.93725490196078431" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="zN8-HX-dsm" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="9ev-ze-89a"/>
-                            <constraint firstItem="zN8-HX-dsm" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="j90-Vv-Pyu"/>
+                            <constraint firstAttribute="trailing" secondItem="d8Q-Wk-kbj" secondAttribute="trailing" constant="20" id="2JH-jJ-TAy"/>
+                            <constraint firstItem="g9F-VU-eV6" firstAttribute="centerX" secondItem="CrD-6c-Zw7" secondAttribute="centerX" id="9uf-vD-6jN"/>
+                            <constraint firstItem="CrD-6c-Zw7" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-101.5" id="Bca-NT-9bs"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="d8Q-Wk-kbj" secondAttribute="bottom" constant="20" id="HR0-Wd-QP7"/>
+                            <constraint firstItem="g9F-VU-eV6" firstAttribute="top" secondItem="CrD-6c-Zw7" secondAttribute="bottom" constant="30" id="LAu-dv-b6Q"/>
+                            <constraint firstItem="MWG-ce-0rj" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="19" id="OMO-9f-J1J"/>
+                            <constraint firstItem="CrD-6c-Zw7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Rvc-1c-45E"/>
+                            <constraint firstItem="d8Q-Wk-kbj" firstAttribute="top" secondItem="MWG-ce-0rj" secondAttribute="bottom" constant="8" id="lA0-M9-VrC"/>
+                            <constraint firstAttribute="trailing" secondItem="MWG-ce-0rj" secondAttribute="trailing" constant="20" id="tIt-eG-PSH"/>
+                            <constraint firstItem="d8Q-Wk-kbj" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="19" id="wsh-kE-k84"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -42,6 +78,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="IBMBlueMix.png" width="1103" height="399"/>
+        <image name="app.png" width="228" height="228"/>
     </resources>
 </document>

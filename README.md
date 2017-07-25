@@ -36,40 +36,35 @@ git clone https://github.com/ibm-bluemix-omnichannel-iclabs/ICLab-OmniChannelApp
 
     <img src="Assets/firebase.png" width="600" height="200">
     
-Go to the `ICLab-OmniChannelAppDev/Web` in your cloned repo and follow the below steps,
+Go to the `ICLab-OmniChannelAppDev/web` in your cloned repo and follow the below steps,
 
-2. Go to the `Web/manifest.yml` file. Change the host and `name` to your website name.
+2. Go to the `Web/manifest.yml` file. Change the host and `name` to your website name and add the  `APP ID servcie name`
 
-3. Open `app.js` file and add values for 
-
-  ```
-config.oauthServerUrl = '<Your APP ID oauthServerUrl>';
-config.clientId = '<Your APP ID clientId>';
-config.tenantId = '<Your APP ID tenantId>';
-config.secret = '<Your APP ID secret>';
-  ```
-
-4.  If you don't see BMSPushSDK.js, BMSPushServiceWorker.js and manifest.json file under /web/views folder. Download these Push Service website SDKs from [Push Web SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-javascript-webpush) and paste them inside /web/views folder
-
-5. Open the `public/manifest.json` file and add values for name and `gcm_sender_id (Sender ID)`.
-
-   <img src="Assets/manifest.png" width="300" height="100">
-
-6.  Open the `views/protected.ejs` file and add values from your PUSH notifications service ,
+3. Open `views/protected.ejs` file and add values for 
 
   ```
+
   var initParams = {
-      "appGUID":"97ea15df-0ca1-4ff0-8c54-fb46259204f8",
-      "appRegion":".stage1-dev.ng.bluemix.net",
-      "clientSecret":"a6e5635d-88b8-4cbd-bc00-58f1be61d6c6"
+      "appGUID":"Push Service APPGUID",
+      "appRegion":"Push Service Region",
+      "clientSecret":"Push service clientSecret"
     }
 
-    var userId = "kg"
+
+  var appName = "Analytics Service Name";
+  var apiKey = "Ananlytics service API Key";
+  var hasUserContext=true; 
+  var tenantId = "Ananlytics Service tenantID";
+  BMSAnalytics.Client.initialize(BMSAnalytics.Client.REGION_US_SOUTH);
+
+  
   ```
 
- Inside the `registerPush` method .
+4.  If you don't see bmsanalytics.js, BMSPushSDK.js, BMSPushServiceWorker.js and manifest.json file under /web/views folder. Download these Push Service website SDKs from [Push Web SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-javascript-webpush), [Ananlytics SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-web-analytics) and paste them inside /web/views folder
 
-7. Push to Bluemix using Bluemix CLI,
+5. Open the `views/manifest.json` file and add values for name and `gcm_sender_id (Sender ID)`.
+
+6. Push to Bluemix using Bluemix CLI,
 
       a.	Go to the folder Web in your terminal.
       b.	Run the CLI command - cf api api.stage1.ng.bluemix.net ,
@@ -77,14 +72,10 @@ config.secret = '<Your APP ID secret>';
       d.	Do the cf push. This will host your app in Bluemix.
       e.	After App is started open - https://yourwebsitename.mybluemix.net.
 
-8. Open the `Bluemix Push service` and add the `websites address` and `Google server Keys (Legacy Server key)`.
+7. Open the `Bluemix Push service` and add the `websites address` and `Google server Keys (Legacy Server key)`.
 
-   <img src="Assets/configpush.png" width="600" height="200">
 
 #### Run the Web app
-
-  <img src="Assets/runweb.png" width="600" height="300">
-
 
   Click on the Enable push button and it will register your website to Push notifications service. Later you can send push notifications from Push Service Dashboard.
 
@@ -94,12 +85,7 @@ config.secret = '<Your APP ID secret>';
 
 1. Got to the Push Service Dashboard and send message
 
-    <img src="Assets/sendWebPush.png" width="600" height="300">
-
 2. You can see the notification in `Browser (Chrome and Firefox)`
-
-    <img src="Assets/ReceiveWebPush.png" width="600" height="300">
-
 
 
 ### Mobile Sample
@@ -225,10 +211,10 @@ config.secret = '<Your APP ID secret>';
         })
   ```
 
-15.	Inside `LoginViewController.swift` , add code for using `APPID Service` login. Add the code inside `log_in` method.
+15.	Inside `LoginViewController.swift` , add code for using `APPID Service` login. Add the code inside `log_inAppID` method.
 
   ```
-  @IBAction func log_in(_ sender: AnyObject) {
+  @IBAction func log_inAppID(_ sender: AnyObject) {
 
          loaderActivity.isHidden = false;
          //Invoking AppID login
@@ -262,8 +248,6 @@ config.secret = '<Your APP ID secret>';
 
 16.	Run your iOS application
 
-   <img src="Assets/runios.png" width="600" height="300">
-
    * You can Register for push Notification using the Enable Push switch.
 
    * Use the Crash Your App switch to crash the app. This will store the crash report in Analytics and next time you open the app it will send crash report to the Mobile Analytics service.
@@ -275,22 +259,9 @@ config.secret = '<Your APP ID secret>';
 
 1. Got to the Push Service Dashboard and send message
 
-    <img src="Assets/sendiOSPush.png" width="600" height="300">
 
 2. You can see the notification in iOS device
 
-    <img src="Assets/ReceiveiOSPush.png" width="200" height="400">
-
-
-#### Check Crash Report in Mobile Analytics
-
-You can find the crash report in `Crashes` section of `Mobile Analytics service` dashboard.
-
- <img src="Assets/crash1.png" width="600" height="300">
-
-For Checking the `logs`, you can go to the `Troubleshooting` section of `Mobile Ananlytics` Service Dashboard
-
-  <img src="Assets/crash2.png" width="600" height="300">
 
 ### License
 
