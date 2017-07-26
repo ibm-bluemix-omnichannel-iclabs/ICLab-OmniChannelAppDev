@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      let pushClientSecret = "Push Service ClientSecret"
      let ananlyticsAppName = "Ananlytics service name"
      let ananlyticsApiKey = "Ananlytics service API Key"
+     var userID = ""
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -88,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         
-        BMSPushClient.sharedInstance.registerWithDeviceToken(deviceToken: deviceToken, WithUserId: "ananth") { (response, status, error) in
+        BMSPushClient.sharedInstance.registerWithDeviceToken(deviceToken: deviceToken, WithUserId: self.userID) { (response, status, error) in
             
             if error.isEmpty {
                 
@@ -102,7 +103,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 logger.debug(message: "Successfully registered for push")
                 logger.info(message: "Successfully registered for push")
                 
+                Analytics.userIdentity = appDelegate.userID
                 Analytics.log(metadata: ["event": "Successfully registered for push"])
+                Analytics.log(metadata: ["Logged in" : appDelegate.userID])
+
 
                 
                 Logger.send(completionHandler: { (response: Response?, error: Error?) in

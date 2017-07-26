@@ -75,6 +75,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
               
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                
+                appDelegate.userID = identityToken.name ?? (identityToken.email?.components(separatedBy: "@"))?[0] ?? "Guest"
+                
+                
                 let mainView  = UIApplication.shared.keyWindow?.rootViewController
                 let afterLoginView  = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
                 DispatchQueue.main.async {
