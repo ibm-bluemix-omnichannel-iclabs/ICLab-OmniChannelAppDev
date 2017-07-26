@@ -1,6 +1,0 @@
-framework module Pods_BMDService {
-  umbrella header "Pods-BMDService-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import BluemixAppID
-import BMSCore
-import BMSAnalytics
 
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
