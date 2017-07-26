@@ -43,7 +43,7 @@
 
     var bmsPush = new BMSPush()
     function callback(response) {
-      alert(response.response)
+      console.log("Init Alert : " + response.response)
     }
     var initParams = {
       "appGUID":"Push Service APPGUID",
@@ -51,10 +51,10 @@
       "clientSecret":"Push service clientSecret"
     }
 
-    var userId = "ananth"
+    var userId = document.getElementById('userNameSpan').innerHTML;
     bmsPush.initialize(initParams, callback)
     bmsPush.registerWithUserId(userId,function(response) {
-     // alert(response.response)
+     console.log("Reg Alert : " + response.response)
       sendAnalytics();
     })
 
@@ -73,7 +73,7 @@
   registerPush();
   }
   function sendAnalytics(){
-    BMSAnalytics.log({'Logged in':'New User'});
+    BMSAnalytics.log({'Logged in as : ':document.getElementById('userNameSpan').innerHTML});
     BMSAnalytics.Logger.setMaxLogStoreSize(10000);
     BMSAnalytics.Logger.setLogLevel('trace');
     console.log('warn');

@@ -103,7 +103,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 logger.debug(message: "Successfully registered for push")
                 logger.info(message: "Successfully registered for push")
                 
+                Analytics.userIdentity = appDelegate.userID
                 Analytics.log(metadata: ["event": "Successfully registered for push"])
+                Analytics.log(metadata: ["Logged in" : appDelegate.userID])
+
 
                 
                 Logger.send(completionHandler: { (response: Response?, error: Error?) in

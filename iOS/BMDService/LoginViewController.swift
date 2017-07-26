@@ -78,7 +78,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 
                 appDelegate.userID = identityToken.name ?? (identityToken.email?.components(separatedBy: "@"))?[0] ?? "Guest"
-                Analytics.userIdentity = appDelegate.userID
+                
                 
                 let mainView  = UIApplication.shared.keyWindow?.rootViewController
                 let afterLoginView  = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
