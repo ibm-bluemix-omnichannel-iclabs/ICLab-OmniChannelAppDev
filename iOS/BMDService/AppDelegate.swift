@@ -7,11 +7,8 @@
 //
 
 import UIKit
-import BMSCore
-import BluemixAppID
-import BMSAnalytics
-import BMSPush
 import NotificationCenter
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -19,15 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     // Service details
-    
-     let appIdTenantId = "APPID tenantId"
-     let appRegion = "Services region"
-     let pushAPPGUID = "Push Service APPGUID"
-     let pushClientSecret = "Push Service ClientSecret"
-     let ananlyticsAppName = "Ananlytics service name"
-     let ananlyticsApiKey = "Ananlytics service API Key"
-     var userID = ""
-    
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
