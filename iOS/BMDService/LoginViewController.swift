@@ -8,6 +8,9 @@
 
 import UIKit
 
+import BluemixAppID
+import BMSCore
+import BMSAnalytics
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
@@ -65,6 +68,38 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         activityController.isHidden = false;
       
         //Invoking AppID login
+        
+        class delegate : AuthorizationDelegate {
+            var view:UIViewController
+            
+            init(view:UIViewController) {
+                self.view = view
+            }
+            public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
+                
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                
+                appDelegate.userID = identityToken.name ?? (identityToken.email?.components(separatedBy: "@"))?[0] ?? "Guest"
+                
+                
+                let mainView  = UIApplication.shared.keyWindow?.rootViewController
+                let afterLoginView  = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController
+                DispatchQueue.main.async {
+                    mainView?.present(afterLoginView!, animated: true, completion: nil)
+                }
+            }
+            public func onAuthorizationCanceled() {
+                print("cancel")
+            }
+            
+            public func onAuthorizationFailure(error: AuthorizationError) {
+                print(error)
+            }
+        }
+        AppID.sharedInstance.loginWidget?.launch(delegate: delegate(view: self))
+
+        
+        
         
     }
 
