@@ -53,7 +53,6 @@
 		14D31AC21E55A3F300671E80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1849D2681F27C0AA00F823BF /* app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app.png; sourceTree = "<group>"; };
 		1849D2691F27C0AA00F823BF /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
-		18A3D02E1F2646C000E334F9 /* BMDService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BMDService.entitlements; sourceTree = "<group>"; };
 		448B44001FBC86BE055FAFCD /* Pods-BMDService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BMDService.release.xcconfig"; path = "Pods/Target Support Files/Pods-BMDService/Pods-BMDService.release.xcconfig"; sourceTree = "<group>"; };
 		C35CB965B2196DD9411F690D /* Pods_BMDService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BMDService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E37276FB96D0CAC21A7A3016 /* Pods-BMDService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BMDService.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BMDService/Pods-BMDService.debug.xcconfig"; sourceTree = "<group>"; };
@@ -101,7 +100,6 @@
 		14D31AAA1E55A3F300671E80 /* BMDService */ = {
 			isa = PBXGroup;
 			children = (
-				18A3D02E1F2646C000E334F9 /* BMDService.entitlements */,
 				14D31ACC1E55A87A00671E80 /* Images */,
 				14D31AAB1E55A3F300671E80 /* AppDelegate.swift */,
 				14D31AAD1E55A3F300671E80 /* LoginViewController.swift */,

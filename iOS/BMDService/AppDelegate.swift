@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      let pushClientSecret = "Push Service ClientSecret"
      let ananlyticsAppName = "Ananlytics service name"
      let ananlyticsApiKey = "Ananlytics service API Key"
+     var userID = ""
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -88,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         
-        BMSPushClient.sharedInstance.registerWithDeviceToken(deviceToken: deviceToken, WithUserId: "ananth") { (response, status, error) in
+        BMSPushClient.sharedInstance.registerWithDeviceToken(deviceToken: deviceToken, WithUserId: self.userID) { (response, status, error) in
             
             if error.isEmpty {
                 
