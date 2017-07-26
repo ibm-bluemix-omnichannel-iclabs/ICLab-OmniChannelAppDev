@@ -209,13 +209,13 @@
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Keychain = {
 								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -474,7 +474,6 @@
 			baseConfigurationReference = E37276FB96D0CAC21A7A3016 /* Pods-BMDService.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = BMDService/BMDService.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Anantha Krishnan K G (6ADZ6AJGXG)";
 				DEVELOPMENT_TEAM = TN6YQNGLXP;
 				INFOPLIST_FILE = BMDService/Info.plist;
@@ -493,7 +492,6 @@
 			baseConfigurationReference = 448B44001FBC86BE055FAFCD /* Pods-BMDService.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = BMDService/BMDService.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Anantha Krishnan K G (6ADZ6AJGXG)";
 				DEVELOPMENT_TEAM = TN6YQNGLXP;
 				INFOPLIST_FILE = BMDService/Info.plist;
