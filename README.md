@@ -55,33 +55,38 @@ Go to the `ICLab-OmniChannelAppDev/Web` in your cloned repo and follow the below
 
   - Add the `manifest.json` file 
   
- ```
-     <link rel="manifest" href="manifest.json"> 
- ```
+    ```
+        <link rel="manifest" href="manifest.json"> 
+    ```
 
-  - under `<script>` tag, add the code below
+  - under `<script>` tag, add the Configurations.
+    Add the appropriate service credentials by navigating to Bluemix.net.
 
-  ```
+    For `Push Notification`,
+    
+    ```
 
-  var initParams = {
-      "appGUID":"<Push Service APPGUID>",
-      "appRegion":"<Push Service Region>",
-      "clientSecret":"<Push service clientSecret>"
-    }
+    var initParams = {
+        "appGUID":"<Push Service APPGUID>",
+        "appRegion":"<Push Service Region>",
+        "clientSecret":"<Push service clientSecret>"
+        }
+    ```
+
+    For `Analytics`,
+
+    ```
+
+    var appName = "<Analytics Service Name>";
+    var apiKey = "<Analytics service API Key>";
+    var hasUserContext=true; 
+    var tenantId = "<Analytics Service tenantID>";
+    ```
 
 
-  var appName = "<Analytics Service Name>";
-  var apiKey = "<Analytics service API Key>";
-  var hasUserContext=true; 
-  var tenantId = "<Analytics Service tenantID>";
-  BMSAnalytics.Client.initialize(BMSAnalytics.Client.REGION_US_SOUTH);
-
-  ```
 
 
-Add the appropriate service credentials by navigating to Bluemix.net.
-
-**Note**: Get the `Analytics Service tenantID` from the URl path of the Analytics Service.
+**Note**: Get the `Analytics Service tenantID` from the URL path of the Analytics Service.
 
 4.  If you don't see `bmsanalytics.js, BMSPushSDK.js, BMSPushServiceWorker.js` and `manifest.json` file under /Web/views folder. Download these Push Service website SDKs from [Push Web SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-javascript-webpush), [Ananlytics SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-web-analytics) and paste them inside /web/views folder
 
