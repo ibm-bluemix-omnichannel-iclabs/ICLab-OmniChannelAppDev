@@ -14,7 +14,7 @@ A sample project to show the easiness of integrating Bluemix Push service, Mobil
 * Cocoapods
 
 
-### Setup Bluemix Services.
+## Setup Bluemix Services.
 
 Complete the steps:
 
@@ -29,7 +29,7 @@ Complete the steps:
 
 ## Samples
 
-Clone the ICLab-OmniChannelAppDev repo
+Clone the ICLab-OmniChannelAppDev repo 
 
 ```
 git clone https://github.com/ibm-bluemix-omnichannel-iclabs/ICLab-OmniChannelAppDev.git
@@ -46,7 +46,7 @@ Under **settings** Icon next to `Overview`, Click on `CLOUD MESSAGING` section t
 **Note:** Keep this tab open on your browser for future reference.
 Go to the `ICLab-OmniChannelAppDev/Web` in your cloned repo and follow the below steps,
 
-2. Go to the `Web/manifest.yml` file. 2	Change the `host` and `name` to a unique name of your choice and add the `APP ID` service name you created above.
+2. Go to the `Web/manifest.yml` file. Change the `host` and `name` to a unique name of your choice and add the `APP ID` service name you created above.
 
 
 3. Open `views/protected.ejs` file, under `<script>` tag, add the code below
