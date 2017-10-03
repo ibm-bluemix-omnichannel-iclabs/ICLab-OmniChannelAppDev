@@ -65,6 +65,7 @@
     var hasUserContext=true; 
     var tenantId = "<Analytics Service tenantID>";
     BMSAnalytics.Client.initialize(BMSAnalytics.Client.REGION_US_SOUTH);
+   
     BMSAnalytics.initialize(appName,apiKey,hasUserContext,BMSAnalytics.DeviceEvents.ALL,tenantId);
     BMSAnalytics.enable();
     BMSAnalytics.setUserIdentity(document.getElementById('userNameSpan').innerHTML);
