@@ -106,7 +106,7 @@ Go to the `ICLab-OmniChannelAppDev/Web` in your cloned repo and follow the below
 
 #### Run the Web app
 
-  Click on the Enable push button and it will register your website to Push notifications service. Later you can send push notifications from Push Service Dashboard.
+  Click on the `Login` option and login with `AppID`. After Successfully loggin you'll be able to register for `Push notificatons`. Later you can send push notifications from Push Service Dashboard.
 
 #### Send Push Notifications
 
@@ -116,6 +116,9 @@ Go to the `ICLab-OmniChannelAppDev/Web` in your cloned repo and follow the below
 
 2. You can see the notification in `Browser (Chrome and Firefox)`
 
+#### Check Ananlytics
+
+ Check the Analytics details by visiting to the Analytics dashboard. 
 
 ### Mobile Sample
 
