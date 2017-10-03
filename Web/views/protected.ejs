@@ -42,9 +42,9 @@
       console.log("Init Alert : " + response.response)
     }
     var initParams = {
-      "appGUID":"Push APPGUID",
-      "appRegion":"push region ",
-      "clientSecret":"Push clientSecret"
+      "appGUID":"<Push Service APPGUID>",
+        "appRegion":"<Push Service Region>",
+        "clientSecret":"<Push service clientSecret>"
     }
 
     var userId = document.getElementById('userNameSpan').innerHTML;
@@ -60,11 +60,11 @@
 
   function enableAnalytics(){
 
-    var appName = "Analytics app name";
-    var apiKey = "Analytics ApiKey";
+    var appName = "<Analytics Service Name>";
+    var apiKey = "<Analytics service API Key>";
     var hasUserContext=true; 
-    var tenantId = "Analytics tenantID";
-    BMSAnalytics.Client.initialize("Analytics app region");
+    var tenantId = "<Analytics Service tenantID>";
+    BMSAnalytics.Client.initialize(BMSAnalytics.Client.REGION_US_SOUTH);
     BMSAnalytics.initialize(appName,apiKey,hasUserContext,BMSAnalytics.DeviceEvents.ALL,tenantId);
     BMSAnalytics.enable();
     BMSAnalytics.setUserIdentity(document.getElementById('userNameSpan').innerHTML);
@@ -87,7 +87,6 @@
       console.log(err); // Error: "It broke"
     });
   }
-
   
   </script>
 

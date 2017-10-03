@@ -51,7 +51,15 @@ Go to the `ICLab-OmniChannelAppDev/Web` in your cloned repo and follow the below
 2. Go to the `Web/manifest.yml` file. Change the `host` and `name` to a unique name of your choice and add the `APP ID` service name you created above.
 
 
-3. Open `views/protected.ejs` file, under `<script>` tag, add the code below
+3. Open `views/protected.ejs` file,
+
+  - Add the `manifest.json` file 
+  
+ ```
+     <link rel="manifest" href="manifest.json"> 
+ ```
+
+  - under `<script>` tag, add the code below
 
   ```
 
@@ -68,11 +76,14 @@ Go to the `ICLab-OmniChannelAppDev/Web` in your cloned repo and follow the below
   var tenantId = "<Analytics Service tenantID>";
   BMSAnalytics.Client.initialize(BMSAnalytics.Client.REGION_US_SOUTH);
 
-  
   ```
+
+
 Add the appropriate service credentials by navigating to Bluemix.net.
 
-4.  If you don't see bmsanalytics.js, BMSPushSDK.js, BMSPushServiceWorker.js and manifest.json file under /Web/views folder. Download these Push Service website SDKs from [Push Web SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-javascript-webpush), [Ananlytics SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-web-analytics) and paste them inside /web/views folder
+**Note**: Get the `Analytics Service tenantID` from the URl path of the Analytics Service.
+
+4.  If you don't see `bmsanalytics.js, BMSPushSDK.js, BMSPushServiceWorker.js` and `manifest.json` file under /Web/views folder. Download these Push Service website SDKs from [Push Web SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-javascript-webpush), [Ananlytics SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-web-analytics) and paste them inside /web/views folder
 
 5. Open the `views/manifest.json` file and add values for `name` and `gcm_sender_id (Sender ID)`.
 
@@ -86,6 +97,7 @@ Add the appropriate service credentials by navigating to Bluemix.net.
 
 7. Open the `Bluemix Push service` and add the `websites address` and `Google server Keys (Legacy Server key)`.
 
+8. Open the [Analytics RestSPI](https://mobile-analytics-dashboard.ng.bluemix.net/analytics-service/#!/Service_Configuration/serviceConfig) and add your website URL in allowedUrls. Use the `v3/serviceConf` POST method under `Service Configuration`.
 
 #### Run the Web app
 
