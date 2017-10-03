@@ -3,12 +3,16 @@
 A sample project to show the easiness of integrating Bluemix Push service, Mobile Analytics and AppID service across different platform (mobile and web).
 
 ## Requirements
+#### For Web
+* Chrome(56)/Firefox(51)
+* [Cloud Foundry or Bluemix CLI](https://console.bluemix.net/docs/cli/index.html)
 
+#### For iOS
 * iOS 8.0+
 * Xcode 8.+
 * Swift 3.+
 * Cocoapods
-* Chrome(56)/Firefox(51)
+
 
 ### Setup Bluemix Services.
 
@@ -19,6 +23,8 @@ Complete the steps:
 2. Create an [AppID Service](https://console.ng.bluemix.net/catalog/?taxonomyNavigation=apps&category=mobile)
 
 3. Create a [Mobile Anlytics Service](https://console.ng.bluemix.net/catalog/?taxonomyNavigation=apps&category=mobile).
+
+**Note:** For service credentials, click on Credentials tab on the left pane.
 
 
 ## Samples
@@ -32,45 +38,49 @@ git clone https://github.com/ibm-bluemix-omnichannel-iclabs/ICLab-OmniChannelApp
 ### Web Sample
 
 
-1. Go to https://console.firebase.google.com/ and create an app and get Legacy Server key and Sender ID from CLOUD MESSAGING section under settings Icon next to Overview 
+1. Go to https://console.firebase.google.com/ and Add a Project. 
+Under **settings** Icon next to `Overview`, Click on `CLOUD MESSAGING` section to get Legacy Server key and Sender ID.
 
     <img src="Assets/firebase.png" width="600" height="200">
     
-Go to the `ICLab-OmniChannelAppDev/web` in your cloned repo and follow the below steps,
+**Note:** Keep this tab open on your browser for future reference.
+Go to the `ICLab-OmniChannelAppDev/Web` in your cloned repo and follow the below steps,
 
-2. Go to the `Web/manifest.yml` file. Change the host and `name` to your website name and add the  `APP ID servcie name`
+2. Go to the `Web/manifest.yml` file. 2	Change the `host` and `name` to a unique name of your choice and add the `APP ID` service name you created above.
 
-3. Open `views/protected.ejs` file and add values for 
+
+3. Open `views/protected.ejs` file, under `<script>` tag, add the code below
 
   ```
 
   var initParams = {
-      "appGUID":"Push Service APPGUID",
-      "appRegion":"Push Service Region",
-      "clientSecret":"Push service clientSecret"
+      "appGUID":"<Push Service APPGUID>",
+      "appRegion":"<Push Service Region>",
+      "clientSecret":"<Push service clientSecret>"
     }
 
 
-  var appName = "Analytics Service Name";
-  var apiKey = "Ananlytics service API Key";
+  var appName = "<Analytics Service Name>";
+  var apiKey = "<Analytics service API Key>";
   var hasUserContext=true; 
-  var tenantId = "Ananlytics Service tenantID";
+  var tenantId = "<Analytics Service tenantID>";
   BMSAnalytics.Client.initialize(BMSAnalytics.Client.REGION_US_SOUTH);
 
   
   ```
+Add the appropriate service credentials by navigating to Bluemix.net.
 
-4.  If you don't see bmsanalytics.js, BMSPushSDK.js, BMSPushServiceWorker.js and manifest.json file under /web/views folder. Download these Push Service website SDKs from [Push Web SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-javascript-webpush), [Ananlytics SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-web-analytics) and paste them inside /web/views folder
+4.  If you don't see bmsanalytics.js, BMSPushSDK.js, BMSPushServiceWorker.js and manifest.json file under /Web/views folder. Download these Push Service website SDKs from [Push Web SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-javascript-webpush), [Ananlytics SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-web-analytics) and paste them inside /web/views folder
 
 5. Open the `views/manifest.json` file and add values for name and `gcm_sender_id (Sender ID)`.
 
 6. Push to Bluemix using Bluemix CLI,
 
-      a.	Go to the folder Web in your terminal.
-      b.	Run the CLI command - cf api api.stage1.ng.bluemix.net ,
-      c.	Login to Bluemix from CLI using cf login. Select your Organization and Space.
-      d.	Do the cf push. This will host your app in Bluemix.
-      e.	After App is started open - https://yourwebsitename.mybluemix.net.
+      1. Go to the folder Web in your terminal.
+      2. Run the CLI command - cf api api.stage1.ng.bluemix.net ,
+      3. Login to Bluemix from CLI using cf login. Select your Organization and Space.
+      4. Do the cf push. This will host your app in Bluemix.
+      5. After App is started open - https://yourwebsitename.mybluemix.net.
 
 7. Open the `Bluemix Push service` and add the `websites address` and `Google server Keys (Legacy Server key)`.
 
