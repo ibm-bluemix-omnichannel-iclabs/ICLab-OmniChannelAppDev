@@ -8,8 +8,7 @@
     <link rel='stylesheet' href='stylesheets/protected.css'/>
 
     <!-- ADD Manifest File -->
-
-
+    <link rel="manifest" href="manifest.json">
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -25,10 +24,70 @@
 
 
     <!-- ADD PUSH & ANALYTICS -->
+    <script src="BMSPushSDK.js"></script>
+    <script src="bmsanalytics.js"></script>
+
+
 
     <script>
 
-    // ADD Code for registering PUSH and Sending ANALYTICS
+    // ADD Code for registering PUSH and SEnabling ANALYTICS
+
+    // Push
+
+    function registerPush(){
+
+    var bmsPush = new BMSPush()
+    function callback(response) {
+      console.log("Init Alert : " + response.response)
+    }
+    var initParams = {
+      "appGUID":"Push APPGUID",
+      "appRegion":"push region ",
+      "clientSecret":"Push clientSecret"
+    }
+
+    var userId = document.getElementById('userNameSpan').innerHTML;
+    bmsPush.initialize(initParams, callback)
+    bmsPush.registerWithUserId(userId,function(response) {
+     console.log("Reg Alert : " + response.response)
+      sendAnalytics();
+    })
+
+  }
+
+  // Analytics
+
+  function enableAnalytics(){
+
+    var appName = "Analytics app name";
+    var apiKey = "Analytics ApiKey";
+    var hasUserContext=true; 
+    var tenantId = "Analytics tenantID";
+    BMSAnalytics.Client.initialize("Analytics app region");
+    BMSAnalytics.initialize(appName,apiKey,hasUserContext,BMSAnalytics.DeviceEvents.ALL,tenantId);
+    BMSAnalytics.enable();
+    BMSAnalytics.setUserIdentity(document.getElementById('userNameSpan').innerHTML);
+    registerPush();
+  }
+
+  function sendAnalytics(){
+    BMSAnalytics.log({'Logged in as : ':document.getElementById('userNameSpan').innerHTML});
+    BMSAnalytics.Logger.setMaxLogStoreSize(10000);
+    BMSAnalytics.Logger.setLogLevel('trace');
+    console.log('warn');
+    BMSAnalytics.log({'event':'Successfully registered for push'});
+    BMSAnalytics.Logger.send();
+    console.log('--------'+BMSAnalytics.Logger.isStoringLogs());
+    console.log('send Logs');
+    var promise=BMSAnalytics.send();
+    promise.then(function(result) {
+      console.log(result); // "Stuff worked!"
+    }, function(err) {
+      console.log(err); // Error: "It broke"
+    });
+  }
+
   
   </script>
 
@@ -73,6 +132,8 @@
 
 
     // Call to Enable Analytics and Push from here.
+
+    enableAnalytics();
 
 
 

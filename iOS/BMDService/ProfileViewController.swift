@@ -9,6 +9,9 @@
 import UIKit
 import NotificationCenter
 
+import BluemixAppID
+import NotificationCenter
+
 class ProfileViewController: UIViewController {
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate

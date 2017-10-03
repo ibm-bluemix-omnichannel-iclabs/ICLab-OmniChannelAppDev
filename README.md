@@ -156,27 +156,8 @@ Add the appropriate service credentials by navigating to Bluemix.net.
       BMSPushClient.sharedInstance.initializeWithAppGUID(appGUID: pushAPPGUID, clientSecret:pushClientSecret)
    }
   ```
-11. Create another method `unRegisterForPush` and add the following code,
 
-  ```
-  func unRegisterForPush() {
-
-           BMSPushClient.sharedInstance.unregisterDevice { (response, status, error) in
-
-              if error.isEmpty {
-                  print( "Response during unregistering device : \(response)")
-                  print( "status code during unregistering device : \(status)")
-                  UIApplication.shared.unregisterForRemoteNotifications()
-              }
-              else {
-                  print( "Error during unregistering device \(error) ")
-
-              }
-          }
-      }
-  ```
-
-12. Add code to register to Push Notification Service inside `didRegisterForRemoteNotificationsWithDeviceToken` method
+11. Add code to register to Push Notification Service inside `didRegisterForRemoteNotificationsWithDeviceToken` method
 
   ```
   BMSPushClient.sharedInstance.registerWithDeviceToken(deviceToken: deviceToken) { (response, status, error) in
@@ -195,35 +176,42 @@ Add the appropriate service credentials by navigating to Bluemix.net.
          }
   ```
 
+12. Add code for sending `Analytics` data.
+
+```
+    let logger = Logger.logger(name: "My Logger")
+    
+    logger.debug(message: "Successfully registered for push")
+    logger.info(message: "Successfully registered for push")
+    
+    Analytics.userIdentity = self.userID
+    Analytics.log(metadata: ["event": "Successfully registered for push"])
+    Analytics.log(metadata: ["Logged in" : self.userID])
+    
+    
+    Logger.send(completionHandler: { (response: Response?, error: Error?) in
+        if let response = response {
+            print("Status code: \(response.statusCode)")
+            print("Response: \(response.responseText)")
+        }
+        if let error = error {
+            logger.error(message: "Failed to send logs. Error: \(error)")
+        }
+    })
+    
+    Analytics.send(completionHandler: { (response: Response?, error: Error?) in
+        if let response = response {
+            print("Status code: \(response.statusCode)")
+            print("Response: \(response.responseText)")
+        }
+        if let error = error {
+            logger.error(message: "Failed to send analytics. Error: \(error)")
+        }
+    })          
+```
 13.	Add code to handle the Push Notification, inside `didReceiveRemoteNotification`
 
-14.	Go to `LoginViewController.swift`  and add code to send the `Logger` and `Analytics` data to `Mobile Analytics service` . Provide the following code snippet inside `viewDidLoad` method
-
-  ```
-  let logger = Logger.logger(name: "My Logger")
-
-        Logger.send(completionHandler: { (response: Response?, error: Error?) in
-            if let response = response {
-                print("Status code: \(response.statusCode)")
-                print("Response: \(response.responseText)")
-            }
-            if let error = error {
-                logger.error(message: "Failed to send logs. Error: \(error)")
-            }
-        })
-
-        Analytics.send(completionHandler: { (response: Response?, error: Error?) in
-            if let response = response {
-                print("Status code: \(response.statusCode)")
-                print("Response: \(response.responseText)")
-            }
-            if let error = error {
-                logger.error(message: "Failed to send analytics. Error: \(error)")
-            }
-        })
-  ```
-
-15.	Inside `LoginViewController.swift` , add code for using `APPID Service` login. Add the code inside `log_inAppID` method.
+14.	Inside `LoginViewController.swift` , add code for using `APPID Service` login. Add the code inside `log_inAppID` method.
 
   ```
   @IBAction func log_inAppID(_ sender: AnyObject) {
