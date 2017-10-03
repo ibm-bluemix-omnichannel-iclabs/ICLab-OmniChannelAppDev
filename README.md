@@ -14,9 +14,11 @@ A sample project to show the easiness of integrating Bluemix Push service, Mobil
 * Cocoapods
 
 
-## Setup Bluemix Services.
+## PreRequisites
 
-Complete the steps:
+* [Bluemix Account](https://bluemix.net)
+
+### Create the following services on Bluemix:
 
 1. Create a [Push Notifications Service](https://console.ng.bluemix.net/catalog/?taxonomyNavigation=apps&category=mobile).
 
@@ -72,7 +74,7 @@ Add the appropriate service credentials by navigating to Bluemix.net.
 
 4.  If you don't see bmsanalytics.js, BMSPushSDK.js, BMSPushServiceWorker.js and manifest.json file under /Web/views folder. Download these Push Service website SDKs from [Push Web SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-javascript-webpush), [Ananlytics SDK](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-web-analytics) and paste them inside /web/views folder
 
-5. Open the `views/manifest.json` file and add values for name and `gcm_sender_id (Sender ID)`.
+5. Open the `views/manifest.json` file and add values for `name` and `gcm_sender_id (Sender ID)`.
 
 6. Push to Bluemix using Bluemix CLI,
 
